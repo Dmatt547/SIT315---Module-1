@@ -1,0 +1,25 @@
+const int motionSensorPin = 2;
+const int ledPin = 3; 
+void setup() {
+  pinMode(motionSensorPin, INPUT);
+  pinMode(ledPin, OUTPUT);
+  Serial.begin(9600);
+}
+
+void loop() {
+  int sensorValue = digitalRead(motionSensorPin);
+  Serial.print("Motion Sensor: ");
+  Serial.println(sensorValue);
+
+  if (sensorValue == HIGH) {
+    digitalWrite(ledPin, HIGH);
+    Serial.println("LED ON");
+  } 
+  else 
+  {
+    digitalWrite(ledPin, LOW);
+    Serial.println("LED OFF");
+  }
+
+  delay(1000);
+}
